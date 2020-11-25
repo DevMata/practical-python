@@ -12,12 +12,16 @@ extra_payment_end_month = 108
 
 while principal > 0:
     principal = principal * (1 + rate / 12) - payment
+    total_paid = total_paid + payment
     months = months + 1
 
     if extra_payment_start_month <= months <= extra_payment_end_month:
         principal = principal - extra_payment
         total_paid = total_paid + extra_payment
 
-    total_paid = total_paid + payment
+    print(months, round(total_paid, 2), round(principal, 2))
 
-print('Total paid', total_paid, 'Months', months)
+print()
+print('Total paid', round(total_paid, 2))
+print('Months', months)
+
