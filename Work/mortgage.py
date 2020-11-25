@@ -7,12 +7,14 @@ payment = 2684.11
 total_paid = 0.0
 months = 0
 extra_payment = 1000
+extra_payment_start_month = 61
+extra_payment_end_month = 108
 
 while principal > 0:
     principal = principal * (1 + rate / 12) - payment
     months = months + 1
 
-    if months <= 12:
+    if extra_payment_start_month <= months <= extra_payment_end_month:
         principal = principal - extra_payment
         total_paid = total_paid + extra_payment
 
